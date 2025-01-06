@@ -1,0 +1,317 @@
+{
+	"info": {
+		"_postman_id": "3ec89a12-1ccd-4f98-a976-fd644aa715fd",
+		"name": "inhouse-eshop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40677093"
+	},
+	"item": [
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Pratik Mandlik\",\r\n  \"email\": \"pratik.mandlik@example.com\",\r\n  \"password\": \"Poco@7738023931\",\r\n  \"role\": \"admin\",\r\n  \"team\": \"admin\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url}}/api/users/register",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"pratik.mandlik@example.com\",\r\n  \"password\": \"Poco@7738023931\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url}}/api/users/login",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Users (Admin)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{bearer_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{url}}/api/users/all-users",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"all-users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit user fields (Admin)",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{bearer_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"role\": \"manager\",\r\n  \"team\": \"operations\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url}}/api/users/update-user/676ea2f08aa3f487a0a3cc44",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"update-user",
+						"676ea2f08aa3f487a0a3cc44"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check who is in team (Manager)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{bearer_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{url}}/api/users/team-users",
+					"protocol": "http",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"team-users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete users (Admin)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{bearer_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{url}}/api/users/delete-user/677c0cef4b99d210515ac35f",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"delete-user",
+						"677c0cef4b99d210515ac35f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Product (Admin & Manager)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"name\": \"Product Name\", \r\n    \"description\": \"Product Description\", \r\n    \"price\": 100, \r\n    \"image\": \"image_url\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url}}/api/products",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{url}}/api/products",
+					"protocol": "http",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show Product by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{url}}/api/products/6771787a5eaff86c537e5228",
+					"protocol": "http",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"products",
+						"6771787a5eaff86c537e5228"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update Product by id (Admin & Manager)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{bearer_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"name\": \"Wireless N 300 Router\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{url}}/api/products/6771787a5eaff86c537e5228",
+					"protocol": "http",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"products",
+						"6771787a5eaff86c537e5228"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete product by id (Admin & Manager)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{bearer_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://ukkh4uvf1d.execute-api.eu-north-1.amazonaws.com/api/products/6771787a5eaff86c537e5228",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"products",
+						"6771787a5eaff86c537e5228"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "bearer_token",
+			"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NmVhNDExNTljYTM0ZTI5YzU3OTAwYSIsImlhdCI6MTczNTMwNTUyOSwiZXhwIjoxNzM1MzA5MTI5fQ.jGngAkTS12mmtbgIjzGvzEZpD-V56TbFOavRMUtL2_Y"
+		}
+	]
+}
